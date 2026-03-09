@@ -1,14 +1,17 @@
-#include<stdio.h> 
-#include<math.h> 
+\\find the radius, area and perimeter of a circle using symbolic constants
+
+#include <stdio.h> 
+#include <math.h> 
 #define pi 3.14 
-float X1,X2,Y1,Y2,D,R; 
+
+float x1,x2,y1,y2,diameter,radius; 
 void radius(); 
 void area(); 
 void perimeter();
 int main()
 { 
   printf("Enter the coordinates:"); 
-  scanf("%f %f %f %f",&X1,&Y1,&X2,&Y2);
+  scanf("%f %f %f %f",&x1,&y1,&x2,&y2);
   radius(); 
   area(); 
   perimeter(); 
@@ -16,20 +19,20 @@ int main()
 }
 void radius() 
 { 
-  D=sqrt(pow(X2-X1,2)+pow(Y2-Y1,2)); 
-  R=D/2; 
-  printf("\nDiameter of circle is %f",D);  
-  printf("\nRadius of circle is %f",R); 
-  printf("\nRadius of circle after typecasting is %d",(int)R); 
+  diameter=sqrt(pow(x2-x1,2)+pow(y2-y1,2)); 
+  radius=diameter/2; 
+  printf("\nDiameter of circle is %f", diameter);  
+  printf("\nRadius of circle is %f",radius); 
+  printf("\nRadius of circle after typecasting is %d",(int)radius); 
 } 
 void area() 
 {  
-  float area=pi*pow(R,2); 
+  float area=pi*pow(radius,2); 
   printf("\nArea of circle is %f",area); 
 }  
   void perimeter() 
 {
-  int p; 
-  float perimeter=2*pi*R; 
+  int perimeter; 
+  float perimeter=2*pi*radius; 
   printf("\nPerimeter of circle is %f",perimeter);   
 }
