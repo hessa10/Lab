@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <math.h>
+float sin_series(float);
+float cos_series(float);
+float sum_series();
+
+int main()
+{
+    float x, s, c, sum;
+
+    printf("Enter value of x (in radians): ");
+    scanf("%f", &x);
+    s = sin_series(x);
+    c = cos_series(x);
+    sum = sum_series();
+
+    printf("sin(x) = %f\n", s);
+    printf("cos(x) = %f\n", c);
+    printf("SUM = %f\n", sum);
+
+    return 0;
+}
+float sin_series(float x)
+{
+    float term = x, sum = x;
+    int i = 3, sign = -1;
+
+    while(fabs(term) > 0.0001)
+    {
+        term = term * x * x / ((i-1) * i);
+        sum = sum + sign * term;
+        sign = -sign;
+        i = i + 2;
+    }
+
+    return sum;
+}
+float cos_series(float x)
+{
+    float term = 1, sum = 1;
+    int i = 2, sign = -1;
+
+    while(fabs(term) > 0.0001)
+    {
+        term = term * x * x / ((i-1) * i);
+        sum = sum + sign * term;
+        sign = -sign;
+        i = i + 2;
+    }
+
+    return sum;
+}
+
+float sum_series()
+{
+    float sum = 1.0, term;
+    int i = 2;
+
+    do
+    {
+        term = pow((1.0/i), i);
+        sum = sum + term;
+        i++;
+    }
+    while(term > 0.0001);
+
+    return sum;
+}
